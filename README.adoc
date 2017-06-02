@@ -1,0 +1,25 @@
+Cookbook
+========
+Francisco J.Lopez-Pellicer
+v1.1, 2012-11
+:doctype: book
+:sectnums:
+:icons:
+:toc:
+:tof:
+:leveloffset: 1
+:spring-boot-version: 2.0.0-SNAPSHOT
+:source-highlighter: prettify
+:data-uri:
+
+# Recipes
+
+|===
+| Recipe | Description
+
+| link:spring-data-rest[spring-data-rest]
+| Simple http://projects.spring.io/spring-data-rest/[Spring Data REST] app with HAL browser.
+
+|===
+
+include::spring-data-rest/README.adoc[]

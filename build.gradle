@@ -1,0 +1,42 @@
+buildscript {
+  ext {
+    springBootVersion = '2.0.0.BUILD-SNAPSHOT'
+  }
+  repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/libs-snapshot' }
+  }
+  dependencies {
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+  }
+}
+
+allprojects  {
+  group = 'es.unizar.iaaa'
+  version = '0.0.1-SNAPSHOT'
+}
+
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'org.springframework.boot'
+  apply plugin: 'io.spring.dependency-management'
+
+
+  sourceCompatibility = 1.8
+  targetCompatibility = 1.8
+  tasks.withType(JavaCompile) {
+  	options.encoding = 'UTF-8'
+  }
+
+  
+  repositories {
+    mavenLocal()
+    
+    maven { url "http://repo.maven.apache.org/maven2" }
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+  }
+
+
+}

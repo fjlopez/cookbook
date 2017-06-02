@@ -1,0 +1,4 @@
+rootProject.name = 'cookbook'
+include ':spring-data-rest'
+
+project(':spring-data-rest').projectDir = "$rootDir/spring-data-rest" as File
