@@ -1,3 +1,5 @@
+:basedir: ../../../spring-data-rest
+
 # Spring Data REST
 
 This recipe shows how Spring Data repositories can be exposed as a REST API without boilerplate code.
@@ -10,28 +12,28 @@ The starting point is the `pom.xml`
 
 [source,xml,numbered]
 ----
-include::{basedir}/spring-data-rest/pom.xml[]
+include::{basedir}/pom.xml[]
 ----
 
 Next we have the *JPA Entity*:
 
 [source,java,numbered]
 ----
-include::{basedir}/spring-data-rest/src/main/java/es/unizar/iaaa/contacts/Contact.java[]
+include::{basedir}/src/main/java/es/unizar/iaaa/contacts/Contact.java[]
 ----
 
 Next we have a *CRUD Repository* :
 
 [source,java]
 ----
-include::{basedir}/spring-data-rest/src/main/java/es/unizar/iaaa/contacts/ContactRepository.java[]
+include::{basedir}/src/main/java/es/unizar/iaaa/contacts/ContactRepository.java[]
 ----
 
 And a `import.sql` created with the tool http://benkeen.github.io/generatedata/[Generate data]
 
 [source,sql,numbered]
 ----
-include::{basedir}/spring-data-rest/src/main/resources/import.sql[lines=4..8]
+include::{basedir}/src/main/resources/import.sql[lines=4..8]
 ----
 
 Finally, the main application.
@@ -59,21 +61,21 @@ and the `application.properties`:
 
 [source,properties,numbered]
 ----
-include::{basedir}/spring-data-rest/src/main/resources/application.properties[]
+include::{basedir}/src/main/resources/application.properties[]
 ----
 
 ## Running the code
 
 Run the code using the *maven* wrapper
 
-[source]
+[source,console]
 ----
 ./mvnw spring-boot:run
 ----
 
 or the *gradle* wrapper:
 
-[source]
+[source,console]
 ----
 ./mvnw --projects spring-data-rest spring-boot:run
 ----

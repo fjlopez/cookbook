@@ -10,14 +10,13 @@ v1.1, 2012-11
 :leveloffset: 1
 :spring-boot-version: 2.0.0-SNAPSHOT
 :data-uri:
-ifndef::basedir[:basedir: ../../..]
 
 # Recipes
 
 |===
 | Recipe | Description
 
-| `spring-data-rest`
+| https://github.com/fjlopez/cookbook/tree/master/spring-data-rest[spring-data-rest]
 | Simple http://projects.spring.io/spring-data-rest/[Spring Data REST] app with HAL browser.
 
 |===

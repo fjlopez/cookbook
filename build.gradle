@@ -16,6 +16,26 @@ buildscript {
 
 apply plugin: 'org.asciidoctor.convert'
 
+asciidoctorj {
+  version = '1.5.5'
+}
+
+asciidoctor {
+  separateOutputDirs = false
+  outputDir = file('docs')
+  attributes \
+        'build-gradle': file('build.gradle'),
+          'endpoint-url': 'https://github.com/fjlopez/cookbook',
+          'source-highlighter': 'coderay',
+          'toc': 'left',
+          'icons': 'font',
+          'setanchors': '',
+          'idprefix': '',
+          'idseparator': '-',
+          'docinfo1': ''
+}
+
+
 allprojects  {
   group = 'es.unizar.iaaa'
   version = '0.0.1-SNAPSHOT'
