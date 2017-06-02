@@ -5,11 +5,16 @@ buildscript {
   repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/libs-snapshot' }
+    jcenter()
   }
   dependencies {
     classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.3'
   }
+
 }
+
+apply plugin: 'org.asciidoctor.convert'
 
 allprojects  {
   group = 'es.unizar.iaaa'

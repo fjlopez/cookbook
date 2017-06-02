@@ -9,17 +9,18 @@ v1.1, 2012-11
 :tof:
 :leveloffset: 1
 :spring-boot-version: 2.0.0-SNAPSHOT
-:source-highlighter: prettify
 :data-uri:
+ifndef::basedir[:basedir: ../../..]
 
 # Recipes
 
 |===
 | Recipe | Description
 
-| link:spring-data-rest[spring-data-rest]
+| `spring-data-rest`
 | Simple http://projects.spring.io/spring-data-rest/[Spring Data REST] app with HAL browser.
 
 |===
 
-include::spring-data-rest/README.adoc[]
+include::spring-data-rest.adoc[]
+

@@ -10,28 +10,28 @@ The starting point is the `pom.xml`
 
 [source,xml,numbered]
 ----
-include::pom.xml[]
+include::{basedir}/spring-data-rest/pom.xml[]
 ----
 
 Next we have the *JPA Entity*:
 
 [source,java,numbered]
 ----
-include::src/main/java/es/unizar/iaaa/contacts/Contact.java[]
+include::{basedir}/spring-data-rest/src/main/java/es/unizar/iaaa/contacts/Contact.java[]
 ----
 
 Next we have a *CRUD Repository* :
 
 [source,java]
 ----
-include::src/main/java/es/unizar/iaaa/contacts/ContactRepository.java[]
+include::{basedir}/spring-data-rest/src/main/java/es/unizar/iaaa/contacts/ContactRepository.java[]
 ----
 
 And a `import.sql` created with the tool http://benkeen.github.io/generatedata/[Generate data]
 
 [source,sql,numbered]
 ----
-include::src/main/resources/import.sql[lines=4..8]
+include::{basedir}/spring-data-rest/src/main/resources/import.sql[lines=4..8]
 ----
 
 Finally, the main application.
@@ -59,7 +59,7 @@ and the `application.properties`:
 
 [source,properties,numbered]
 ----
-include::src/main/resources/application.properties[]
+include::{basedir}/spring-data-rest/src/main/resources/application.properties[]
 ----
 
 ## Running the code
@@ -84,4 +84,4 @@ The profile link (http://localhost:8080/api/browser/index.html#/api/profile/cont
 The profile explains that you can also do GET, POST, PUT, PATCH and DELETE at http://localhost:8080/api/contacts.
 
 .Spring Data REST – HAL Browser
-image::docs/img/hal-browser.png[]
+image::images/hal-browser.png[]
