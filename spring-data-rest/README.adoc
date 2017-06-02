@@ -1,0 +1,87 @@
+# Spring Data REST
+
+This recipe shows how Spring Data repositories can be exposed as a REST API without boilerplate code.
+
+This recipe uses https://projects.spring.io/spring-boot/[Spring Boot] {spring-boot-version} and the https://github.com/mikekelly/hal-browser[HAL Browser].
+
+## Code
+
+The starting point is the `pom.xml`
+
+[source,xml,numbered]
+----
+include::pom.xml[]
+----
+
+Next we have the *JPA Entity*:
+
+[source,java,numbered]
+----
+include::src/main/java/es/unizar/iaaa/contacts/Contact.java[]
+----
+
+Next we have a *CRUD Repository* :
+
+[source,java]
+----
+include::src/main/java/es/unizar/iaaa/contacts/ContactRepository.java[]
+----
+
+And a `import.sql` created with the tool http://benkeen.github.io/generatedata/[Generate data]
+
+[source,sql,numbered]
+----
+include::src/main/resources/import.sql[lines=4..8]
+----
+
+Finally, the main application.
+
+[source,java,numbered]
+----
+package es.unizar.iaaa.contacts;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication                                            # <1>
+public class Application {
+
+        public static void main(String[] args) {
+                SpringApplication.run(Application.class, args);   # <2>
+        }
+}
+----
+
+<1> Indicates this is the configuration class of a Spring Boot application.
+<2> This start the Spring Boot framework.
+
+and the `application.properties`:
+
+[source,properties,numbered]
+----
+include::src/main/resources/application.properties[]
+----
+
+## Running the code
+
+Run the code using the *maven* wrapper
+
+[source]
+----
+./mvnw spring-boot:run
+----
+
+or the *gradle* wrapper:
+
+[source]
+----
+./mvnw --projects spring-data-rest spring-boot:run
+----
+
+We can then access the HAL Browser on http://localhost:8080/api/browser/index.html#/api/contacts.
+The response body returns all the contacts and provides http://stateless.co/hal_specification.html[HAL metadata].
+The profile link (http://localhost:8080/api/browser/index.html#/api/profile/contacts) returns an http://alps.io/[ALPS profile] document.
+The profile explains that you can also do GET, POST, PUT, PATCH and DELETE at http://localhost:8080/api/contacts.
+
+.Spring Data REST – HAL Browser
+image::docs/img/hal-browser.png[]
